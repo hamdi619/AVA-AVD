@@ -6,6 +6,7 @@ This codebase is developed based on [mmf](https://github.com/facebookresearch/mm
 Please refer to [AVA-AVD](https://github.com/zcxu-eric/AVA-AVD/tree/main/dataset).
 
 ### Training
+Download the [pretrained backbones](https://drive.google.com/drive/folders/1vuIc8XMRaA8_lIt9X5EkzUIpLH3gkKUx?usp=share_link) and put them under ```save/token/pretrained```.
 ```
 export PYTHONPATH=./model \
 CUDA_VISIBLE_DEVICES=0 \
