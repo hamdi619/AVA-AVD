@@ -1,4 +1,5 @@
 import os, subprocess
+import shutil
 
 def download_videos(save_dir):
     print('downloading videos...')
@@ -10,10 +11,25 @@ def download_videos(save_dir):
         cmd = f'wget -P {save_dir} https://s3.amazonaws.com/ava-dataset/trainval/{video.strip()}'
         subprocess.call(cmd, shell=True)
 
-def download_annotations():
-    print('downloading annotaitons...')
-    cmd = f'gdown --id 18kjJJbebBg7e8umI6HoGE4_tI3OWufzA'
+    print('Copying annotations...')
+    src = '/content/drive/MyDrive/Colab Notebooks/annotations.tar.gz'
+    dst = './annotations.tar.gz'
+    shutil.copy(src, dst)
+    cmd = f'tar -xvf annotations.tar.gz -C dataset/'
     subprocess.call(cmd, shell=True)
+
+def download_annotations():
+    # print('downloading annotaitons...')
+    print('Copying annotations...')
+    src = '/content/drive/MyDrive/Colab Notebooks/annotations.tar.gz'
+    dst = './annotations.tar.gz'
+    shutil.copy(src, dst)
+    cmd = f'tar -xvf annotations.tar.gz -C dataset/'
+    subprocess.call(cmd, shell=True)
+
+    # cmd = f'gdown --id 18kjJJbebBg7e8umI6HoGE4_tI3OWufzA'
+    # subprocess.call(cmd, shell=True)
+
     cmd = f'tar -xvf annotations.tar.gz -C dataset/'
     subprocess.call(cmd, shell=True)
     os.remove('annotations.tar.gz')
